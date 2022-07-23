@@ -6,7 +6,7 @@ import { GoBackButton } from "components/GoBackButton/GoBackButton";
 import { Link, useSearchParams } from "react-router-dom";
 
 
-export const Movies = () => {
+const Movies = () => {
     
 
     const [searchParams, setSearchParams] = useSearchParams();
@@ -67,6 +67,7 @@ export const Movies = () => {
     );
 };
 
+export default Movies;
 
 
 

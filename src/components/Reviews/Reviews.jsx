@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { ReviewsList } from "./Reviews.styled";
 
-export const Reviews = () => {
+const Reviews = () => {
     const [reviews, setReviews] = useState([]);
     const { movieId } = useParams();
 
@@ -25,21 +25,7 @@ export const Reviews = () => {
                 : <p>We don't have reviews</p>
             }            
         </>
-
-
-
-
-
-
-        // <ul>
-        //     {reviews
-        //         ? reviews.map(review => 
-        //             <li key={review.id}>
-        //                 <p>Author: {review.author}</p>
-        //                 <p>{review.content}</p>
-        //             </li>)
-        //     :<p>We don't have reviews</p>
-        //     }
-        // </ul>
     )
 }
+
+export default Reviews;

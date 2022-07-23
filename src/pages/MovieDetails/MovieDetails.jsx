@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { GoBackButton } from "components/GoBackButton/GoBackButton";
 import { InfoBox, InfoList } from "./MovieDetails.styled";
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState(null);
     const { movieId } = useParams('');
     const [error, setError] = useState(null);
@@ -41,3 +41,5 @@ export const MovieDetails = () => {
         </>
     )
 }
+
+export default MovieDetails;
