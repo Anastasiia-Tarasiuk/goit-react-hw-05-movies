@@ -2,6 +2,7 @@ import { Link, Outlet, useParams } from "react-router-dom";
 import { MovieView } from "components/MovieView/MovieView";
 import { apiGetMovieInfoById } from "services/apiGetMovies/apiGetMovies";
 import { useState, useEffect } from "react";
+import { GoBackButton } from "components/GoBackButton/GoBackButton";
 
 export const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState(null);
@@ -20,6 +21,7 @@ export const MovieDetails = () => {
     
     return (
         <>
+            <Link to='/'><GoBackButton/></Link>
             {movieInfo && <MovieView movieInfo={movieInfo} />}            
             <p>Additional information</p>
             {error
