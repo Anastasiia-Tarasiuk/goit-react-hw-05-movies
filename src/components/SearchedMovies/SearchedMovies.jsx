@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export const SeachedMovies = ({ moviesList }) => {
+export const SearchedMovies = ({ moviesList }) => {
 
     return (
         <>
@@ -8,7 +8,7 @@ export const SeachedMovies = ({ moviesList }) => {
             <ul>   
                 {moviesList.map(movie => (
                     <li key={movie.id}>
-                        <Link to='movies/movie'>
+                        <Link to={`${movie.id}` }>
                             {movie.title ?? movie.original_title}
                         </Link>
                     </li>
@@ -16,9 +16,5 @@ export const SeachedMovies = ({ moviesList }) => {
             </ul>       
         )}
         </>
-
-    )
-    
+    )  
 }
-
-

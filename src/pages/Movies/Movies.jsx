@@ -1,6 +1,6 @@
 import { Searchbar } from "components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
-import { SeachedMovies } from "components/SeachedMovies/SeachedMovies";
+import { SearchedMovies } from "components/SearchedMovies/SearchedMovies";
 import { apiMovieSearch } from "services/apiGetMovies/apiGetMovies";
 
 export const Movies = () => {
@@ -20,7 +20,11 @@ export const Movies = () => {
     return (
         <>
             <Searchbar onSubmit={handleGetData} />
-            <SeachedMovies moviesList={movies} />
+            <SearchedMovies moviesList={movies} />
         </>
     );
 };
+
+
+
+

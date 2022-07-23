@@ -12,12 +12,13 @@ export const Home = () => {
 
   return (
     <>
+      <p>Trending today</p>
       {trendingMovies.length > 0 && (
         <ul>
           {trendingMovies.map(item => (
     
             <li key={item.id}>
-              <Link to='/trending_movie'>
+              <Link to={`movies/${item.id}` }>
                 {item.title ?? item.original_name}
               </Link>
             </li>
