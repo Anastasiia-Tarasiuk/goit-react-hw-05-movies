@@ -1,6 +1,5 @@
 export const MovieView = ({ movieInfo }) => {
-    console.log(movieInfo)
-    
+
     const { poster_path, title, vote_average, overview, genres } = movieInfo;
     const url = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 

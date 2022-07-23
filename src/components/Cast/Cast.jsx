@@ -10,12 +10,13 @@ export const Cast = () => {
         apiGetMovieCastById(movieId).then(res => setCast(res.cast));
     }, [movieId])
 
-    console.log(cast);
     return (
         <ul>
             {cast && cast.map(item =>
                 <li key={item.cast_id}>
-                    <img src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} alt="Actor" />
+                    {item.profile_path
+                        ? <img src={`https://image.tmdb.org/t/p/w500${item.profile_path}`} alt="Actor" />
+                        : <p>No picture :(</p>}
                     <p>{item.name}</p>
                     <p>Character: {item.character}</p>
                 </li>)}    

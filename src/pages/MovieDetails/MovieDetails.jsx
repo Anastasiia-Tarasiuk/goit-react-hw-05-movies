@@ -12,11 +12,10 @@ export const MovieDetails = () => {
         apiGetMovieInfoById(movieId)
             .then(res => setMovieInfo(res))
             .catch(error => {
-            const msgForApiBadRespond = "Something went wrong.";
-            setError(msgForApiBadRespond);
-            console.log(error); 
-            }
-            );    
+                const msgForApiBadRespond = "Something went wrong.";
+                setError(msgForApiBadRespond);
+                console.log(error); 
+            });    
     }, [movieId])
     
     return (
