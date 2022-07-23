@@ -11,7 +11,7 @@ export const Reviews = () => {
         apiGetMovieReviewsById(movieId).then(res => setReviews(res.results));
     }, [movieId])
 
-    // console.log(reviews);
+    console.log(reviews);
 
     return <div>Reviews!</div>
 }
