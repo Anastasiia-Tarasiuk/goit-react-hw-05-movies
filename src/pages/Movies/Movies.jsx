@@ -7,79 +7,18 @@ import { Link, useSearchParams } from "react-router-dom";
 
 
 const Movies = () => {
-    
-
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("query") ?? "";
-
-
-
     const [movies, setMovies] = useState([]);
-
-
-    const handleGetData = (searchValue) => {
-        setSearchParams({query: searchValue})
-    }
-
 
     useEffect(() => {
         query !== "" &&
         apiMovieSearch(query, 1).then(res => setMovies(res.results));
     }, [query]);
 
-
-
-
-
-
-
-
-
-  
-    // const [movies, setMovies] = useState([]);
-    
-    // const [searchQuery, setSearchQuery] = useState('');
-
-
-    // const handleGetData = (searchValue) => {
-    //     setSearchQuery(searchValue);
-    //     setSearchParams(`query=${searchValue}`);
-    // }
-
- 
-
-    // console.log(query)
-
-    // useEffect(() => {
-    //     searchQuery !== "" &&
-    //     apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
-    // }, [searchQuery]);
-
-
-
-
-
-
-
-
-
-
-
-    
-    // const [movies, setMovies] = useState([]);
-    
-    // const [searchQuery, setSearchQuery] = useState('');
-
-
-    // const handleGetData = (searchValue) => {
-    //     setSearchQuery(searchValue);
-    // }
-
-
-    // useEffect(() => {
-    //     searchQuery !== "" &&
-    //     apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
-    // }, [searchQuery]);
+    const handleGetData = (searchValue) => {
+        setSearchParams({query: searchValue})
+    }
 
     return (
         <>
