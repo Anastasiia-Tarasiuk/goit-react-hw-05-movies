@@ -10,27 +10,50 @@ const Movies = () => {
     
 
     const [searchParams, setSearchParams] = useSearchParams();
-    const query = searchParams.get("query");
+    const query = searchParams.get("query") ?? "";
 
-  
+
+
     const [movies, setMovies] = useState([]);
-    
-    const [searchQuery, setSearchQuery] = useState('');
 
 
     const handleGetData = (searchValue) => {
-        setSearchQuery(searchValue);
-        setSearchParams(`query=${searchValue}`);
+        setSearchParams({query: searchValue})
     }
+
+
+    useEffect(() => {
+        query !== "" &&
+        apiMovieSearch(query, 1).then(res => setMovies(res.results));
+    }, [query]);
+
+
+
+
+
+
+
+
+
+  
+    // const [movies, setMovies] = useState([]);
+    
+    // const [searchQuery, setSearchQuery] = useState('');
+
+
+    // const handleGetData = (searchValue) => {
+    //     setSearchQuery(searchValue);
+    //     setSearchParams(`query=${searchValue}`);
+    // }
 
  
 
-    console.log(query)
+    // console.log(query)
 
-    useEffect(() => {
-        searchQuery !== "" &&
-        apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
-    }, [searchQuery]);
+    // useEffect(() => {
+    //     searchQuery !== "" &&
+    //     apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
+    // }, [searchQuery]);
 
 
 
@@ -62,7 +85,7 @@ const Movies = () => {
         <>
             <Link to='/'><GoBackButton/></Link>
             <Searchbar onSubmit={handleGetData} />
-            <SearchedMovies moviesList={movies} query={searchQuery} />
+            <SearchedMovies moviesList={movies} />
         </>
     );
 };
