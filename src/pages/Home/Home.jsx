@@ -1,4 +1,4 @@
-import { apiTrandingMoves } from "services/apiGetMovies/apiGetMovies";
+import { apiTrandingMovies } from "services/apiGetMovies/apiGetMovies";
 import { useState, useEffect } from "react"; 
 import { Link } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export const Home = () => {
   const [trendingMovies, setTrendingMovies] = useState([]);
 
   useEffect(() => {
-    apiTrandingMoves().then(res => setTrendingMovies(res.results));
+    apiTrandingMovies().then(res => setTrendingMovies(res.results));
   }, []);
 
   return (

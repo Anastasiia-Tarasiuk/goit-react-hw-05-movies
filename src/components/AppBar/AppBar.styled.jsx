@@ -5,6 +5,5 @@ export const Container = styled.div`
     width: 100%;
     position: sticky;
     padding: 20px;
-    font-size: 24px;
 
 `

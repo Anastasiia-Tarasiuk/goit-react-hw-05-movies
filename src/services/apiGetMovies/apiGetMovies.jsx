@@ -20,7 +20,7 @@ export const apiMovieSearch = async (searchQuery, page) => {
     return response.data;
 }
 
-export const apiTrandingMoves = async () => {
+export const apiTrandingMovies = async () => {
     const response = await axios(`trending/all/day`, {
         params,
     });

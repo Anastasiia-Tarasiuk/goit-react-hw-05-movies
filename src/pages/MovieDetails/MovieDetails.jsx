@@ -3,6 +3,7 @@ import { MovieView } from "components/MovieView/MovieView";
 import { apiGetMovieInfoById } from "services/apiGetMovies/apiGetMovies";
 import { useState, useEffect } from "react";
 import { GoBackButton } from "components/GoBackButton/GoBackButton";
+import { InfoBox, InfoList } from "./MovieDetails.styled";
 
 export const MovieDetails = () => {
     const [movieInfo, setMovieInfo] = useState(null);
@@ -22,19 +23,21 @@ export const MovieDetails = () => {
     return (
         <>
             <Link to='/'><GoBackButton/></Link>
-            {movieInfo && <MovieView movieInfo={movieInfo} />}            
-            <p>Additional information</p>
-            {error
-                ? <p>Here is no info :(</p>
-                : (<ul>
-                <li>
-                    <Link to="cast">Cast</Link>
-                </li>
-                <li>
-                    <Link to="reviews">Reviews</Link>
-                </li>
-            </ul>)}
-            <Outlet />
+            {movieInfo && <MovieView movieInfo={movieInfo} />}     
+            <InfoBox>
+                <p>Additional information</p>
+                {error
+                    ? <p>Here is no info :(</p>
+                    : (<InfoList>
+                    <li>
+                        <Link to="cast">Cast</Link>
+                    </li>
+                    <li>
+                        <Link to="reviews">Reviews</Link>
+                    </li>
+                </InfoList>)}
+                <Outlet />
+            </InfoBox>
         </>
     )
 }

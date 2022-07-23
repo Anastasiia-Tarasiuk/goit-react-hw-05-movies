@@ -3,27 +3,66 @@ import { useState, useEffect } from "react";
 import { SearchedMovies } from "components/SearchedMovies/SearchedMovies";
 import { apiMovieSearch } from "services/apiGetMovies/apiGetMovies";
 import { GoBackButton } from "components/GoBackButton/GoBackButton";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+
 
 export const Movies = () => {
+    
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const query = searchParams.get("query");
+
+  
     const [movies, setMovies] = useState([]);
     
-    const [searchParam, setSearchParam] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
+
 
     const handleGetData = (searchValue) => {
-        setSearchParam(searchValue);
+        setSearchQuery(searchValue);
+        setSearchParams(`query=${searchValue}`);
     }
 
+ 
+
+    console.log(query)
+
     useEffect(() => {
-        searchParam !== "" &&
-        apiMovieSearch(searchParam, 1).then(res => setMovies(res.results));
-    }, [searchParam]);
+        searchQuery !== "" &&
+        apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
+    }, [searchQuery]);
+
+
+
+
+
+
+
+
+
+
+
+    
+    // const [movies, setMovies] = useState([]);
+    
+    // const [searchQuery, setSearchQuery] = useState('');
+
+
+    // const handleGetData = (searchValue) => {
+    //     setSearchQuery(searchValue);
+    // }
+
+
+    // useEffect(() => {
+    //     searchQuery !== "" &&
+    //     apiMovieSearch(searchQuery, 1).then(res => setMovies(res.results));
+    // }, [searchQuery]);
 
     return (
         <>
             <Link to='/'><GoBackButton/></Link>
             <Searchbar onSubmit={handleGetData} />
-            <SearchedMovies moviesList={movies} />
+            <SearchedMovies moviesList={movies} query={searchQuery} />
         </>
     );
 };

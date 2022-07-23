@@ -1,20 +1,24 @@
+import { Container, Poster, GenresList, GenresItem } from "./MovieView.styled";
+
 export const MovieView = ({ movieInfo }) => {
 
     const { poster_path, title, vote_average, overview, genres } = movieInfo;
-    const url = `https://image.tmdb.org/t/p/w500/${poster_path}`;
+    const url = `https://image.tmdb.org/t/p/w300/${poster_path}`;
 
     return (
-        <>        
-            <img src={url} alt="Movie poster"/>
-            <p>{title}</p>
-            <p>User Score: {vote_average}%</p>
-            <p>Overview</p>
-            <p>{overview}</p>
-            <p>Genres</p>
-            <ul>
-                {genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
-            </ul>
-        </>
+        <Container>        
+            <Poster src={url} alt="Movie poster"/>
+            <div>
+                <p><b>{title}</b></p>
+                <p>User Score: {vote_average}%</p>
+                <p><b>Overview</b></p>
+                <p>{overview}</p>
+                <p><b>Genres</b></p>
+                <GenresList>
+                    {genres.map(genre => <GenresItem key={genre.id}>{genre.name}</GenresItem>)}
+                </GenresList>
+            </div>
+        </Container>
     )
 }
 

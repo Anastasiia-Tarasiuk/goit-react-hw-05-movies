@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SearchButton, SearchForm } from "./SearchBar.styled";
 
 export const Searchbar = ({ onSubmit }) => {    
     const [inputValue, setInputValue] = useState('');
@@ -19,7 +20,7 @@ export const Searchbar = ({ onSubmit }) => {
     }
   
     return (
-        <form onSubmit={handleFormSubmit}>  
+        <SearchForm onSubmit={handleFormSubmit}>  
             <input
                 onChange={handleInputChange}
                 name="inputText"
@@ -28,10 +29,8 @@ export const Searchbar = ({ onSubmit }) => {
                 placeholder="Search images and photos"
                 value={inputValue}
             />
-            <button type="submit">Search
-                {/* <Icon/> */}
-            </button>
-        </form>
+            <SearchButton type="submit">Search</SearchButton>
+        </SearchForm>
     )
     
 }
