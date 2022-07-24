@@ -10,7 +10,7 @@ const params = {
 }
 
 export const apiMovieSearch = async (searchQuery, page) => {
-    const response = await axios(`search/movie/`, {
+    const response = await axios(`search/movie`, {
         params: {
             ...params,
             query: searchQuery,
