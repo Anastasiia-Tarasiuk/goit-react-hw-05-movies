@@ -2,8 +2,7 @@ import { Searchbar } from "components/SearchBar/SearchBar";
 import { useState, useEffect } from "react";
 import { SearchedMovies } from "components/SearchedMovies/SearchedMovies";
 import { apiMovieSearch } from "services/apiGetMovies/apiGetMovies";
-import { GoBackButton } from "components/GoBackButton/GoBackButton";
-import { Link, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 
 const Movies = () => {
@@ -22,7 +21,6 @@ const Movies = () => {
 
     return (
         <>
-            <Link to='/'><GoBackButton/></Link>
             <Searchbar onSubmit={handleGetData} />
             <SearchedMovies moviesList={movies} />
         </>
