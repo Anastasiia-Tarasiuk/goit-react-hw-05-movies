@@ -1,6 +1,7 @@
 import { apiTrandingMovies } from "services/apiGetMovies/apiGetMovies";
 import { useState, useEffect } from "react"; 
 import { Link } from "react-router-dom";
+import { Title } from "./Home.styled";
 
 const Home = () => {
 
@@ -12,7 +13,7 @@ const Home = () => {
 
   return (
     <>
-      <p>Trending today</p>
+      <Title>Trending today</Title>
       {trendingMovies.length > 0 && (
         <ul>
           {trendingMovies.map(item => (    

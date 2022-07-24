@@ -3,18 +3,18 @@ import PropTypes from 'prop-types';
 
 export const MovieView = ({ movieInfo }) => {
   
-    const { poster_path, title, vote_average, overview, genres } = movieInfo;
+    const { poster_path, title, vote_average, overview, genres, release_date } = movieInfo;
     const url = `https://image.tmdb.org/t/p/w300/${poster_path}`;
 
     return (
         <Container>        
             <Poster src={url} alt="Movie poster"/>
             <div>
-                <p><b>{title}</b></p>
-                <p>User Score: {vote_average}%</p>
-                <p><b>Overview</b></p>
+                <h2>{title} {release_date.slice(0, 4)}</h2>
+                <p>User Score: {(vote_average*10).toFixed(0)}%</p>
+                <h3>Overview</h3>
                 <p>{overview}</p>
-                <p><b>Genres</b></p>
+                <h3>Genres</h3>
                 <GenresList>
                     {genres.map(genre => <GenresItem key={genre.id}>{genre.name}</GenresItem>)}
                 </GenresList>
